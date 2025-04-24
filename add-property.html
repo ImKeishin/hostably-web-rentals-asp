@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Property - Hostably</title>
+  <meta name="description" content="Add a new rental property" />
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Hostably</a>
+        <div class="nav-links">
+          <a href="host-properties.html">My Properties</a>
+          <a href="host-reservations.html">Reservations</a>
+          <a href="profile.html">Profile</a>
+          <a href="#" id="logout-btn">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Add New Property</h1>
+      
+      <form id="add-property-form" class="add-property-form">
+        <div class="form-group">
+          <label for="title">Property Title</label>
+          <input type="text" id="title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" rows="5" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="price">Price per Night (USD)</label>
+          <input type="number" id="price" min="1" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="bedrooms">Number of Bedrooms</label>
+          <input type="number" id="bedrooms" min="1" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Amenities</label>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="amenities" value="wifi">
+              <span>WiFi</span>
+            </label>
+            <label>
+              <input type="checkbox" name="amenities" value="kitchen">
+              <span>Kitchen</span>
+            </label>
+            <label>
+              <input type="checkbox" name="amenities" value="parking">
+              <span>Free Parking</span>
+            </label>
+            <label>
+              <input type="checkbox" name="amenities" value="pool">
+              <span>Swimming Pool</span>
+            </label>
+            <label>
+              <input type="checkbox" name="amenities" value="ac">
+              <span>Air Conditioning</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="image">Property Image URL</label>
+          <input type="text" id="image" placeholder="https://example.com/image.jpg">
+        </div>
+        
+        <button type="submit" class="btn-primary">Add Property</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hostably. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/add-property.js"></script>
+</body>
+</html>

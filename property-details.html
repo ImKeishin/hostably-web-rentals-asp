@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Details - Hostably</title>
+  <meta name="description" content="View property details" />
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Hostably</a>
+        <div class="nav-links">
+          <a href="properties.html">Properties</a>
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="property-details">
+        <!-- Property details will be inserted here by JavaScript -->
+      </div>
+      
+      <div class="booking-form">
+        <h2>Book This Property</h2>
+        <form id="booking-form">
+          <div class="form-group">
+            <label for="check-in">Check-in Date</label>
+            <input type="date" id="check-in" required>
+          </div>
+          <div class="form-group">
+            <label for="check-out">Check-out Date</label>
+            <input type="date" id="check-out" required>
+          </div>
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" min="1" max="10" value="2" required>
+          </div>
+          <div class="booking-summary">
+            <p>Total: <span id="total-price">$0</span></p>
+          </div>
+          <button type="submit" class="btn-primary">Reserve Now</button>
+        </form>
+      </div>
+      
+      <div class="reviews-section">
+        <h2>Reviews</h2>
+        <div class="reviews-list">
+          <!-- Reviews will be inserted here by JavaScript -->
+        </div>
+        <a href="write-review.html" class="btn-outline">Write a Review</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hostably. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/property-details.js"></script>
+</body>
+</html>

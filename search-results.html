@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Results - Hostably</title>
+  <meta name="description" content="Search results for properties" />
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Hostably</a>
+        <div class="nav-links">
+          <a href="properties.html">Properties</a>
+          <a href="login.html">Login</a>
+          <a href="register.html">Register</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="search-bar">
+        <form action="search-results.html" method="get">
+          <input type="text" name="query" id="search-query" placeholder="Search for properties...">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      
+      <h1>Results</h1>
+      <div id="search-status" class="mb-6"></div>
+      
+      <div class="property-grid" id="results-grid">
+        <!-- Search results will be inserted here by JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hostably. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/search-results.js"></script>
+</body>
+</html>

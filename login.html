@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Hostably</title>
+  <meta name="description" content="Login to your Hostably account" />
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</head>
+<body>
+  <main class="auth-page">
+    <div class="auth-container">
+      <h1>Login to Hostably</h1>
+      
+      <div class="error-message" id="error-message" style="display: none;"></div>
+      
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        
+        <div class="form-group">
+          <label>I am a:</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="user-type" value="renter" checked>
+              <span>Renter</span>
+            </label>
+            
+            <label>
+              <input type="radio" name="user-type" value="host">
+              <span>Host</span>
+            </label>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+      
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
