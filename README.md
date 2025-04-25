@@ -54,11 +54,11 @@ npm run dev
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- HTML
+- CSS
+- JavaScript
+- ASP.NET
+- MySQL
 
 ## How can I deploy this project?
 
