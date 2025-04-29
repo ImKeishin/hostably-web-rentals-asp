@@ -1,0 +1,98 @@
+
+API Endpoints for Hostably Project
+
+This document describes the API endpoints you will need to implement to connect 
+your HTML/CSS/JavaScript frontend to the MySQL database.
+
+1. User Authentication Endpoints
+------------------------------
+
+POST /api/register.php
+- Description: Register a new user
+- Request Body: { name, email, password, userType }
+- Response: { success, message, userId? }
+
+POST /api/login.php
+- Description: Authenticate a user
+- Request Body: { email, password, userType }
+- Response: { success, message, user?, token? }
+
+GET /api/profile.php
+- Description: Get user profile information
+- Headers: Authorization: Bearer {token}
+- Response: { success, user }
+
+PUT /api/profile.php
+- Description: Update user profile
+- Headers: Authorization: Bearer {token}
+- Request Body: { name, email, ... }
+- Response: { success, message, user? }
+
+2. Property Endpoints
+-------------------
+
+GET /api/properties.php
+- Description: Get all properties with optional filtering
+- Query Parameters: location, minPrice, maxPrice, bedrooms
+- Response: { success, properties }
+
+GET /api/properties.php?id={id}
+- Description: Get a single property by ID
+- Response: { success, property, amenities, reviews }
+
+POST /api/properties.php
+- Description: Create a new property (host only)
+- Headers: Authorization: Bearer {token}
+- Request Body: { title, location, description, pricePerNight, bedrooms, imageUrl, amenities }
+- Response: { success, message, propertyId? }
+
+PUT /api/properties.php?id={id}
+- Description: Update a property (host only)
+- Headers: Authorization: Bearer {token}
+- Request Body: { title, location, description, ... }
+- Response: { success, message }
+
+DELETE /api/properties.php?id={id}
+- Description: Delete a property (host only)
+- Headers: Authorization: Bearer {token}
+- Response: { success, message }
+
+3. Reservation Endpoints
+----------------------
+
+GET /api/reservations.php
+- Description: Get user's reservations (different for host vs renter)
+- Headers: Authorization: Bearer {token}
+- Response: { success, reservations }
+
+POST /api/reservations.php
+- Description: Create a new reservation (renter only)
+- Headers: Authorization: Bearer {token}
+- Request Body: { propertyId, checkInDate, checkOutDate, guests, totalPrice }
+- Response: { success, message, reservationId? }
+
+PUT /api/reservations.php?id={id}
+- Description: Update reservation status (host only)
+- Headers: Authorization: Bearer {token}
+- Request Body: { status }
+- Response: { success, message }
+
+4. Review Endpoints
+-----------------
+
+GET /api/reviews.php?propertyId={id}
+- Description: Get reviews for a property
+- Response: { success, reviews }
+
+POST /api/reviews.php
+- Description: Create a new review (renter only, must have stayed at property)
+- Headers: Authorization: Bearer {token}
+- Request Body: { propertyId, rating, comment }
+- Response: { success, message, reviewId? }
+
+5. Search Endpoint
+----------------
+
+GET /api/search.php?query={searchTerm}
+- Description: Search properties by title, location, or description
+- Response: { success, properties }
