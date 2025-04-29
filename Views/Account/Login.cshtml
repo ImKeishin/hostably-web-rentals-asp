@@ -1,0 +1,47 @@
+
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+}
+
+<div class="auth-container">
+    <h1>Login to Hostably</h1>
+    
+    <div asp-validation-summary="ModelOnly" class="error-message"></div>
+    
+    <form method="post" asp-action="Login">
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input type="email" asp-for="Email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="Password">Password</label>
+            <input type="password" asp-for="Password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group">
+            <label>I am a:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" asp-for="UserType" value="renter" checked />
+                    <span>Renter</span>
+                </label>
+                
+                <label>
+                    <input type="radio" asp-for="UserType" value="host" />
+                    <span>Host</span>
+                </label>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn-primary">Login</button>
+    </form>
+    
+    <div class="auth-footer">
+        <p>Don't have an account? <a asp-action="Register">Register</a></p>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hostably</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo" asp-controller="Home" asp-action="Index">Hostably</a>
+                <div class="nav-links">
+                    <a asp-controller="Properties" asp-action="Index">Properties</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("Host"))
+                        {
+                            <a asp-controller="HostDashboard" asp-action="Index">Dashboard</a>
+                            <a asp-controller="HostDashboard" asp-action="MyProperties">My Properties</a>
+                            <a asp-controller="HostDashboard" asp-action="Reservations">Reservations</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Reservations" asp-action="Index">My Reservations</a>
+                        }
+                        <a asp-controller="Account" asp-action="Profile">Profile</a>
+                        <form method="post" asp-controller="Account" asp-action="Logout" class="d-inline">
+                            <button type="submit" class="nav-link btn btn-link">Logout</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login">Login</a>
+                        <a asp-controller="Account" asp-action="Register">Register</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Hostably. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

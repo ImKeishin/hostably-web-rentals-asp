@@ -1,0 +1,43 @@
+
+@model IEnumerable<PropertyViewModel>
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="hero">
+    <h1>Find your perfect stay with Hostably</h1>
+    <p>Book unique homes and experiences around the world</p>
+</div>
+
+<div class="search-bar">
+    <form asp-controller="Properties" asp-action="Search" method="get">
+        <input type="text" name="query" placeholder="Search for properties...">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<h2>Featured Properties</h2>
+
+<div class="property-grid">
+    @foreach (var property in Model)
+    {
+        <div class="property-card">
+            <div class="property-image">
+                @if (!string.IsNullOrEmpty(property.ImageUrl))
+                {
+                    <img src="@property.ImageUrl" alt="@property.Title">
+                }
+                else
+                {
+                    <span>No image</span>
+                }
+            </div>
+            <div class="property-content">
+                <h3>@property.Title</h3>
+                <p class="location">@property.Location, @property.Bedrooms bedrooms</p>
+                <p class="price">$@property.PricePerNight per night</p>
+                <a asp-controller="Properties" asp-action="Details" asp-route-id="@property.Id" class="view-button">View Details</a>
+            </div>
+        </div>
+    }
+</div>

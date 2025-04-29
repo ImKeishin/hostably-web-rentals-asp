@@ -1,0 +1,48 @@
+
+@model IEnumerable<PropertyViewModel>
+@{
+    ViewData["Title"] = "My Properties";
+}
+
+<h1>My Properties</h1>
+
+<div class="mb-4">
+    <a asp-controller="Properties" asp-action="Create" class="btn-primary">Add New Property</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-8">
+        <p class="text-gray-600 mb-4">You haven't added any properties yet.</p>
+        <a asp-controller="Properties" asp-action="Create" class="btn-primary inline-block">Add Your First Property</a>
+    </div>
+}
+else
+{
+    <div class="property-grid">
+        @foreach (var property in Model)
+        {
+            <div class="property-card">
+                <div class="property-image">
+                    @if (!string.IsNullOrEmpty(property.ImageUrl))
+                    {
+                        <img src="@property.ImageUrl" alt="@property.Title">
+                    }
+                    else
+                    {
+                        <span>No image</span>
+                    }
+                </div>
+                <div class="property-content">
+                    <h3>@property.Title</h3>
+                    <p class="location">@property.Location, @property.Bedrooms bedrooms</p>
+                    <p class="price">$@property.PricePerNight per night</p>
+                    <div class="property-actions">
+                        <a asp-controller="Properties" asp-action="Details" asp-route-id="@property.Id" class="view-button">View</a>
+                        <a asp-controller="Properties" asp-action="Edit" asp-route-id="@property.Id" class="view-button">Edit</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

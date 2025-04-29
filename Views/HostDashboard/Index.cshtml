@@ -1,0 +1,27 @@
+
+@{
+    ViewData["Title"] = "Host Dashboard";
+}
+
+<div class="dashboard-header">
+    <h1>Hostably</h1>
+    <h2>Host Dashboard</h2>
+</div>
+
+<div class="dashboard-actions">
+    <a asp-controller="Properties" asp-action="Create" class="dashboard-card">
+        <span>Add Property</span>
+    </a>
+    
+    <a asp-controller="HostDashboard" asp-action="MyProperties" class="dashboard-card">
+        <span>My Properties</span>
+    </a>
+    
+    <a asp-controller="HostDashboard" asp-action="Reservations" class="dashboard-card">
+        <span>Reservations</span>
+    </a>
+    
+    <a asp-controller="Account" asp-action="Profile" class="dashboard-card">
+        <span>Profile</span>
+    </a>
+</div>
